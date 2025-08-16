@@ -1,60 +1,56 @@
 import { Button } from 'primereact/button'
 import { Dropdown } from 'primereact/dropdown'
 import { useState } from 'react'
-import SearchProduct from '../search-products/search-product'
+import SearchClient from '../search-clients/search-client'
 
 interface SearchFilters {
   searchTerm: string
-  categories: string[]
-  brands: string[]
   status: string | null
-  stockStatus: string | null
+  documentType: string | null
+  branch: string | null
 }
 
-export default function ProductTable() {
+export default function ClientTable() {
 
-    interface Product {
+    interface Client {
         id: number
-        name: string
-        category: string
-        brand: string // Agregado para los filtros
-        price: number
-        stock: number
-        status: 'active' | 'inactive'
-        description?: string // Agregado para la búsqueda
+        firstName: string
+        lastName: string
+        documentType: 'CC' | 'CE' | 'PA'
+        documentNumber: string
+        email: string
+        phone: string
+        branch: 'ejercito' | 'armada' | 'fuerza_aerea' | 'policia' | 'pensionado'
+        rank: string
+        status: 'active' | 'inactive' | 'suspended'
+        registrationDate: string
+        loansCount: number
     }
 
-    const mockProducts: Product[] = [
-        { id: 1, name: 'Laptop HP Pavilion 15', category: 'Electrónicos', brand: 'HP', price: 899.99, stock: 21, status: 'active', description: 'Laptop potente para trabajo y entretenimiento' },
-        { id: 2, name: 'Mouse Inalámbrico Logitech', category: 'Accesorios', brand: 'Logitech', price: 29.99, stock: 5, status: 'active', description: 'Mouse ergonómico inalámbrico' },
-        { id: 3, name: 'Teclado Mecánico RGB', category: 'Accesorios', brand: 'Logitech', price: 89.99, stock: 26, status: 'active', description: 'Teclado mecánico con iluminación RGB' },
-        { id: 4, name: 'Monitor 24" Samsung', category: 'Electrónicos', brand: 'Samsung', price: 199.99, stock: 9, status: 'inactive', description: 'Monitor Full HD de 24 pulgadas' },
-        { id: 5, name: 'Auriculares Sony WH-1000XM4', category: 'Audio', brand: 'Sony', price: 299.99, stock: 12, status: 'active', description: 'Auriculares con cancelación de ruido' },
-        { id: 6, name: 'Webcam Logitech C920', category: 'Accesorios', brand: 'Logitech', price: 79.99, stock: 0, status: 'active', description: 'Webcam HD para videoconferencias' },
-        { id: 7, name: 'SSD Samsung 500GB', category: 'Almacenamiento', brand: 'Samsung', price: 119.99, stock: 30, status: 'active', description: 'Disco sólido de alta velocidad' },
-        { id: 8, name: 'Router TP-Link AC1200', category: 'Redes', brand: 'TP-Link', price: 89.99, stock: 6, status: 'active', description: 'Router inalámbrico de doble banda' },
-        { id: 9, name: 'Tablet iPad Air', category: 'Electrónicos', brand: 'Apple', price: 599.99, stock: 17, status: 'active', description: 'Tablet premium con pantalla Retina' },
-        { id: 10, name: 'Impresora HP LaserJet', category: 'Oficina', brand: 'HP', price: 149.99, stock: 15, status: 'active', description: 'Impresora láser monocromática' },
-        { id: 11, name: 'Smartphone Samsung Galaxy', category: 'Electrónicos', brand: 'Samsung', price: 749.99, stock: 22, status: 'active', description: 'Smartphone Android de gama alta' },
-        { id: 12, name: 'Disco Duro Externo 1TB', category: 'Almacenamiento', brand: 'Samsung', price: 89.99, stock: 18, status: 'active', description: 'Almacenamiento portátil de 1TB' },
-        { id: 13, name: 'Cámara Canon EOS', category: 'Fotografía', brand: 'Canon', price: 1299.99, stock: 4, status: 'active', description: 'Cámara réflex profesional' },
-        { id: 14, name: 'Speakers Bluetooth JBL', category: 'Audio', brand: 'JBL', price: 129.99, stock: 14, status: 'active', description: 'Altavoces inalámbricos portátiles' },
-        { id: 15, name: 'Power Bank 20000mAh', category: 'Accesorios', brand: 'Samsung', price: 39.99, stock: 0, status: 'inactive', description: 'Batería externa de alta capacidad' },
+    const mockClients: Client[] = [
+        { id: 1, firstName: 'Carlos', lastName: 'Rodríguez Martínez', documentType: 'CC', documentNumber: '1234567890', email: 'carlos.rodriguez@ejercito.mil.co', phone: '3001234567', branch: 'ejercito', rank: 'Capitán', status: 'active', registrationDate: '2024-01-15', loansCount: 2 },
+        { id: 2, firstName: 'María', lastName: 'González López', documentType: 'CC', documentNumber: '0987654321', email: 'maria.gonzalez@armada.mil.co', phone: '3109876543', branch: 'armada', rank: 'Teniente', status: 'active', registrationDate: '2024-02-20', loansCount: 1 },
+        { id: 3, firstName: 'José', lastName: 'Pérez Sánchez', documentType: 'CC', documentNumber: '1122334455', email: 'jose.perez@fac.mil.co', phone: '3201122334', branch: 'fuerza_aerea', rank: 'Sargento', status: 'inactive', registrationDate: '2023-11-10', loansCount: 0 },
+        { id: 4, firstName: 'Ana', lastName: 'Jiménez Torres', documentType: 'CC', documentNumber: '5566778899', email: 'ana.jimenez@policia.gov.co', phone: '3005566778', branch: 'policia', rank: 'Patrullero', status: 'active', registrationDate: '2024-03-05', loansCount: 3 },
+        { id: 5, firstName: 'Roberto', lastName: 'Vargas Ruiz', documentType: 'CC', documentNumber: '9988776655', email: 'roberto.vargas@pensionado.gov.co', phone: '3149988776', branch: 'pensionado', rank: 'Mayor (R)', status: 'suspended', registrationDate: '2023-08-22', loansCount: 1 },
+        { id: 6, firstName: 'Carmen', lastName: 'Morales Díaz', documentType: 'CC', documentNumber: '4433221100', email: 'carmen.morales@ejercito.mil.co', phone: '3184433221', branch: 'ejercito', rank: 'Subteniente', status: 'active', registrationDate: '2024-01-30', loansCount: 0 },
+        { id: 7, firstName: 'Luis', lastName: 'Herrera Castro', documentType: 'CE', documentNumber: '1357924680', email: 'luis.herrera@armada.mil.co', phone: '3021357924', branch: 'armada', rank: 'Cabo', status: 'active', registrationDate: '2024-02-14', loansCount: 2 },
+        { id: 8, firstName: 'Patricia', lastName: 'Silva Mendoza', documentType: 'CC', documentNumber: '2468135790', email: 'patricia.silva@fac.mil.co', phone: '3112468135', branch: 'fuerza_aerea', rank: 'Técnico', status: 'active', registrationDate: '2023-12-18', loansCount: 1 },
+        { id: 9, firstName: 'Fernando', lastName: 'Ramírez Ortega', documentType: 'CC', documentNumber: '1111222233', email: 'fernando.ramirez@policia.gov.co', phone: '3251111222', branch: 'policia', rank: 'Intendente', status: 'active', registrationDate: '2024-04-02', loansCount: 0 },
+        { id: 10, firstName: 'Gloria', lastName: 'Ávila Núñez', documentType: 'CC', documentNumber: '3333444455', email: 'gloria.avila@pensionado.gov.co', phone: '3063333444', branch: 'pensionado', rank: 'Coronel (R)', status: 'inactive', registrationDate: '2023-09-15', loansCount: 4 },
     ]
 
-    const [products] = useState<Product[]>(mockProducts)
+    const [clients] = useState<Client[]>(mockClients)
     const [currentPage, setCurrentPage] = useState(1)
-    const [sortField, setSortField] = useState<keyof Product>('id')
+    const [sortField, setSortField] = useState<keyof Client>('id')
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
     const [itemsPerPage, setItemsPerPage] = useState(8)
     
-    // Estado para los filtros
     const [filters, setFilters] = useState<SearchFilters>({
         searchTerm: '',
-        categories: [],
-        brands: [],
         status: null,
-        stockStatus: null
+        documentType: null,
+        branch: null
     })
 
     const itemsPerPageOptions = [
@@ -65,68 +61,36 @@ export default function ProductTable() {
         { label: '20', value: 20 },
     ]
 
-    // Función para manejar cambios en los filtros
     const handleFiltersChange = (newFilters: SearchFilters) => {
         setFilters(newFilters)
-        setCurrentPage(1) // Resetear a página 1 cuando cambien los filtros
+        setCurrentPage(1)
     }
 
-    // Función de filtrado
-    const filterProducts = (products: Product[], filters: SearchFilters): Product[] => {
-        return products.filter(product => {
-            // Filtro por término de búsqueda
+    const filterClients = (clients: Client[], filters: SearchFilters): Client[] => {
+        return clients.filter(client => {
             if (filters.searchTerm) {
                 const searchTerm = filters.searchTerm.toLowerCase()
                 const matchesSearch = (
-                    product.name.toLowerCase().includes(searchTerm) ||
-                    product.description?.toLowerCase().includes(searchTerm) ||
-                    `PRD-${product.id.toString().padStart(4, '0')}`.toLowerCase().includes(searchTerm) ||
-                    product.category.toLowerCase().includes(searchTerm) ||
-                    product.brand.toLowerCase().includes(searchTerm)
+                    `${client.firstName} ${client.lastName}`.toLowerCase().includes(searchTerm) ||
+                    client.email.toLowerCase().includes(searchTerm) ||
+                    client.documentNumber.includes(searchTerm) ||
+                    client.phone.includes(searchTerm) ||
+                    client.rank.toLowerCase().includes(searchTerm)
                 )
                 if (!matchesSearch) return false
             }
 
-            // Filtro por categorías
-            if (filters.categories.length > 0) {
-                if (!filters.categories.includes(product.category)) return false
-            }
-
-            // Filtro por marcas
-            if (filters.brands.length > 0) {
-                if (!filters.brands.includes(product.brand)) return false
-            }
-
-            // Filtro por estado
-            if (filters.status) {
-                if (filters.status === 'active' && product.status !== 'active') return false
-                if (filters.status === 'inactive' && product.status !== 'inactive') return false
-            }
-
-            // Filtro por estado de stock
-            if (filters.stockStatus) {
-                switch (filters.stockStatus) {
-                    case 'in-stock':
-                        if (product.stock <= 10) return false
-                        break
-                    case 'low-stock':
-                        if (product.stock === 0 || product.stock > 10) return false
-                        break
-                    case 'out-of-stock':
-                        if (product.stock > 0) return false
-                        break
-                }
-            }
+            if (filters.status && client.status !== filters.status) return false
+            if (filters.documentType && client.documentType !== filters.documentType) return false
+            if (filters.branch && client.branch !== filters.branch) return false
 
             return true
         })
     }
 
-    // Aplicar filtros
-    const filteredProducts = filterProducts(products, filters)
+    const filteredClients = filterClients(clients, filters)
 
-    // Ordenamiento
-    const sortedProducts = [...filteredProducts].sort((a, b) => {
+    const sortedClients = [...filteredClients].sort((a, b) => {
       const aValue = a[sortField]
       const bValue = b[sortField]
       
@@ -143,42 +107,54 @@ export default function ProductTable() {
       return 0
     })
   
-    // Paginación
-    const totalPages = Math.ceil(sortedProducts.length / itemsPerPage)
+    const totalPages = Math.ceil(sortedClients.length / itemsPerPage)
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
-    const currentProducts = sortedProducts.slice(startIndex, endIndex)
+    const currentClients = sortedClients.slice(startIndex, endIndex)
   
-    const handleSort = (field: keyof Product) => {
+    const handleSort = (field: keyof Client) => {
       if (sortField === field) {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
       } else {
         setSortField(field)
         setSortOrder('asc')
       }
-      setCurrentPage(1) // Resetear a página 1 al ordenar
+      setCurrentPage(1)
     }
 
     const handleItemsPerPageChange = (newItemsPerPage: number) => {
       setItemsPerPage(newItemsPerPage)
-      setCurrentPage(1) // Resetear a página 1 al cambiar items por página
+      setCurrentPage(1)
     }
-  
-    const StatusBadge = ({ status, stock }: { status: 'active' | 'inactive'; stock: number }) => {
-      if (stock === 0) {
-        return (
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-            <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-1.5"></div>
-            Sin Stock
-          </span>
-        )
+
+    const getBranchLabel = (branch: string) => {
+      const branchLabels: Record<string, string> = {
+        ejercito: 'Ejército Nacional',
+        armada: 'Armada Nacional', 
+        fuerza_aerea: 'Fuerza Aérea',
+        policia: 'Policía Nacional',
+        pensionado: 'Pensionado'
       }
-      
+      return branchLabels[branch] || branch
+    }
+
+
+  
+    const StatusBadge = ({ status }: { status: 'active' | 'inactive' | 'suspended' }) => {
       if (status === 'active') {
         return (
           <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
             <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5"></div>
             Activo
+          </span>
+        )
+      }
+      
+      if (status === 'suspended') {
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+            <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-1.5"></div>
+            Suspendido
           </span>
         )
       }
@@ -190,24 +166,25 @@ export default function ProductTable() {
         </span>
       )
     }
-  
-    const StockIndicator = ({ stock }: { stock: number }) => {
-      let colorClass = 'text-emerald-600 bg-emerald-50'
+
+    const LoansIndicator = ({ count }: { count: number }) => {
+      let colorClass = 'text-gray-600 bg-gray-50'
       
-      if (stock === 0) {
-        colorClass = 'text-red-600 bg-red-50'
-      } else if (stock <= 10) {
-        colorClass = 'text-amber-600 bg-amber-50'
+      if (count > 0) {
+        colorClass = 'text-blue-600 bg-blue-50'
       }
-  
+      if (count > 2) {
+        colorClass = 'text-purple-600 bg-purple-50'
+      }
+
       return (
         <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold ${colorClass}`}>
-          {stock}
+          {count}
         </span>
       )
     }
   
-    const SortIcon = ({ field }: { field: keyof Product }) => {
+    const SortIcon = ({ field }: { field: keyof Client }) => {
       if (sortField !== field) {
         return <i className="pi pi-sort text-gray-400 ml-1"></i>
       }
@@ -221,7 +198,6 @@ export default function ProductTable() {
       )
     }
 
-    // Generar números de página inteligentes
     const getPageNumbers = () => {
       const delta = 2
       const range = []
@@ -248,32 +224,28 @@ export default function ProductTable() {
       return rangeWithDots
     }
 
-    // Verificar si hay filtros activos
     const hasActiveFilters = filters.searchTerm || 
-                            filters.categories.length > 0 || 
-                            filters.brands.length > 0 || 
                             filters.status || 
-                            filters.stockStatus
+                            filters.documentType || 
+                            filters.branch
   
     return (
       <div className="space-y-6">
-        {/* Componente de filtros */}
-        <SearchProduct onFiltersChange={handleFiltersChange} />
+        <SearchClient onFiltersChange={handleFiltersChange} />
 
-        {/* Resultados de búsqueda */}
         {hasActiveFilters && (
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <i className="pi pi-search text-blue-600 mr-2"></i>
                 <span className="text-blue-800 font-medium">
-                  {filteredProducts.length === 0 
-                    ? 'No se encontraron productos' 
-                    : `${filteredProducts.length} producto${filteredProducts.length !== 1 ? 's' : ''} encontrado${filteredProducts.length !== 1 ? 's' : ''}`
+                  {filteredClients.length === 0 
+                    ? 'No se encontraron clientes' 
+                    : `${filteredClients.length} cliente${filteredClients.length !== 1 ? 's' : ''} encontrado${filteredClients.length !== 1 ? 's' : ''}`
                   }
                 </span>
               </div>
-              {filteredProducts.length === 0 && (
+              {filteredClients.length === 0 && (
                 <span className="text-blue-600 text-sm">
                   Intenta ajustar los filtros de búsqueda
                 </span>
@@ -282,11 +254,9 @@ export default function ProductTable() {
           </div>
         )}
 
-        {/* Tabla de productos */}
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              {/* Header de la tabla */}
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
                   <th 
@@ -300,47 +270,47 @@ export default function ProductTable() {
                   </th>
                   <th 
                     className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
-                    onClick={() => handleSort('name')}
+                    onClick={() => handleSort('firstName')}
                   >
                     <div className="flex items-center">
-                      Producto
-                      <SortIcon field="name" />
+                      Cliente
+                      <SortIcon field="firstName" />
                     </div>
                   </th>
                   <th 
                     className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
-                    onClick={() => handleSort('category')}
+                    onClick={() => handleSort('documentType')}
                   >
                     <div className="flex items-center">
-                      Categoría
-                      <SortIcon field="category" />
+                      Documento
+                      <SortIcon field="documentType" />
                     </div>
                   </th>
                   <th 
                     className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
-                    onClick={() => handleSort('brand')}
+                    onClick={() => handleSort('branch')}
                   >
                     <div className="flex items-center">
-                      Marca
-                      <SortIcon field="brand" />
+                      Fuerza/Entidad
+                      <SortIcon field="branch" />
                     </div>
                   </th>
                   <th 
-                    className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
-                    onClick={() => handleSort('price')}
+                    className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
+                    onClick={() => handleSort('rank')}
                   >
-                    <div className="flex items-center justify-end">
-                      Precio
-                      <SortIcon field="price" />
+                    <div className="flex items-center">
+                      Rango
+                      <SortIcon field="rank" />
                     </div>
                   </th>
                   <th 
                     className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
-                    onClick={() => handleSort('stock')}
+                    onClick={() => handleSort('loansCount')}
                   >
                     <div className="flex items-center justify-center">
-                      Stock
-                      <SortIcon field="stock" />
+                      Préstamos
+                      <SortIcon field="loansCount" />
                     </div>
                   </th>
                   <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
@@ -352,99 +322,101 @@ export default function ProductTable() {
                 </tr>
               </thead>
     
-              {/* Cuerpo de la tabla */}
               <tbody className="bg-white divide-y divide-gray-100">
-                {currentProducts.length === 0 ? (
+                {currentClients.length === 0 ? (
                   <tr>
                     <td colSpan={8} className="px-6 py-12 text-center">
                       <div className="flex flex-col items-center">
-                        <i className="pi pi-search text-gray-400 text-4xl mb-4"></i>
+                        <i className="pi pi-users text-gray-400 text-4xl mb-4"></i>
                         <h3 className="text-lg font-medium text-gray-900 mb-2">
-                          No se encontraron productos
+                          No se encontraron clientes
                         </h3>
                         <p className="text-gray-500">
                           {hasActiveFilters 
                             ? 'Intenta ajustar los filtros de búsqueda'
-                            : 'No hay productos disponibles'
+                            : 'No hay clientes registrados'
                           }
                         </p>
                       </div>
                     </td>
                   </tr>
                 ) : (
-                  currentProducts.map((product, index) => (
+                  currentClients.map((client) => (
                     <tr 
-                      key={product.id} 
+                      key={client.id} 
                       className="hover:bg-gray-50 transition-colors duration-150 group"
                     >
-                      {/* ID */}
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 text-sm font-medium">
-                            {product.id}
+                            {client.id}
                           </div>
                         </div>
                       </td>
         
-                      {/* Producto */}
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div>
-                            <div className="text-sm font-semibold text-gray-900">{product.name}</div>
-                            <div className="text-xs text-gray-500">SKU: PRD-{product.id.toString().padStart(4, '0')}</div>
+                            <div className="text-sm font-semibold text-gray-900">
+                              {client.firstName} {client.lastName}
+                            </div>
+                            <div className="text-xs text-gray-500">{client.email}</div>
                           </div>
                         </div>
                       </td>
         
-                      {/* Categoría */}
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
-                          {product.category}
+                        <div>
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                            {client.documentType}
+                          </span>
+                          <div className="text-xs text-gray-500 mt-1">{client.documentNumber}</div>
+                        </div>
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-200">
+                          {getBranchLabel(client.branch)}
                         </span>
                       </td>
 
-                      {/* Marca */}
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-200">
-                          {product.brand}
-                        </span>
+                        <div className="text-sm font-medium text-gray-900">{client.rank}</div>
                       </td>
         
-                      {/* Precio */}
-                      <td className="px-6 py-4 whitespace-nowrap text-right">
-                        <div className="text-lg font-bold text-gray-900">
-                          ${product.price.toFixed(2)}
-                        </div>
-                      </td>
-        
-                      {/* Stock */}
                       <td className="px-6 py-4 whitespace-nowrap text-center">
-                        <StockIndicator stock={product.stock} />
+                        <LoansIndicator count={client.loansCount} />
                       </td>
         
-                      {/* Estado */}
                       <td className="px-6 py-4 whitespace-nowrap text-center">
-                        <StatusBadge status={product.status} stock={product.stock} />
+                        <StatusBadge status={client.status} />
                       </td>
         
-                      {/* Acciones */}
                       <td className="px-6 py-4 whitespace-nowrap text-center">
                         <div className="flex items-center justify-center gap-1 group-hover:opacity-100 transition-opacity duration-200">
+                          <Button 
+                            icon="pi pi-eye" 
+                            size="small" 
+                            text
+                            className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 w-8 h-8 rounded-lg"
+                            tooltip="Ver Detalles"
+                            onClick={() => console.log('Ver cliente:', client.id)}
+                          />
                           <Button 
                             icon="pi pi-pencil" 
                             size="small" 
                             text
                             className="text-gray-600 hover:text-green-600 hover:bg-green-50 w-8 h-8 rounded-lg"
                             tooltip="Editar"
-                            onClick={() => console.log('Editar producto:', product.id)}
+                            onClick={() => console.log('Editar cliente:', client.id)}
                           />
                           <Button 
-                            icon="pi pi-trash" 
+                            icon="pi pi-file-text" 
                             size="small" 
                             text
-                            className="text-gray-600 hover:text-red-600 hover:bg-red-50 w-8 h-8 rounded-lg"
-                            tooltip="Eliminar"
-                            onClick={() => console.log('Eliminar producto:', product.id)}
+                            className="text-gray-600 hover:text-purple-600 hover:bg-purple-50 w-8 h-8 rounded-lg"
+                            tooltip="Ver Solicitudes"
+                            onClick={() => console.log('Ver solicitudes:', client.id)}
                           />
                         </div>
                       </td>
@@ -455,12 +427,10 @@ export default function ProductTable() {
             </table>
           </div>
     
-          {/* Paginación */}
-          {filteredProducts.length > 0 && (
+          {filteredClients.length > 0 && (
             <div className="bg-gray-50 px-8 py-4 border-t border-gray-200">
               <div className="flex items-center justify-between">
                 
-                {/* Selector de items por página */}
                 <div className="flex items-center gap-2">
                     <span className="text-gray-600 text-sm">Mostrar:</span>
                     <Dropdown
@@ -473,11 +443,10 @@ export default function ProductTable() {
                 </div>
                 
                 <div className="text-sm text-gray-700">
-                  Mostrando {startIndex + 1} a {Math.min(endIndex, filteredProducts.length)} de {filteredProducts.length} productos
+                  Mostrando {startIndex + 1} a {Math.min(endIndex, filteredClients.length)} de {filteredClients.length} clientes
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  {/* Botón anterior */}
                   <Button
                     icon="pi pi-chevron-left"
                     size="small"
@@ -487,9 +456,7 @@ export default function ProductTable() {
                     className="w-8 h-8 rounded-lg disabled:opacity-50 hover:bg-gray-200"
                   />
                   
-                  {/* Números de página inteligentes */}
                   {totalPages <= 7 ? (
-                    // Si hay pocas páginas, mostrar todas
                     Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                       <Button
                         key={page}
@@ -505,7 +472,6 @@ export default function ProductTable() {
                       />
                     ))
                   ) : (
-                    // Si hay muchas páginas, mostrar con puntos suspensivos
                     getPageNumbers().map((page, index) => (
                       <span key={index}>
                         {page === '...' ? (
@@ -527,7 +493,6 @@ export default function ProductTable() {
                     ))
                   )}
                   
-                  {/* Botón siguiente */}
                   <Button
                     icon="pi pi-chevron-right"
                     size="small"

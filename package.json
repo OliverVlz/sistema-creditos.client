@@ -1,7 +1,7 @@
 {
-  "name": "fronted-system-pos",
+  "name": "sistema-creditos-libranza",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/vite": "^4.1.11",
     "@tanstack/react-query": "^5.84.2",
@@ -19,9 +20,11 @@
     "primereact": "^10.9.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-hook-form": "^7.53.2",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.8.0",
     "tailwindcss": "^4.1.11",
+    "zod": "^3.24.1",
     "zustand": "^5.0.7"
   },
   "devDependencies": {

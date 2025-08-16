@@ -1,5 +1,5 @@
-import { Fragment, useMemo } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useMemo } from 'react'
+import { NavLink } from 'react-router-dom'
 
 type Leaf = {
   label: string
@@ -21,20 +21,31 @@ interface SidebarMenuProps {
 }
 
 export default function SidebarMenu({ onItemClick }: SidebarMenuProps) {
-  const navigate = useNavigate()
-
-  // ---- MODELO SIMPLIFICADO ----
+  // ---- SISTEMA DE CRÉDITOS POR LIBRANZA ----
   const sections: Group[] = useMemo(() => ([
 
     {
-      title: 'Inventario',
+      title: 'Créditos',
       items: [
-        { label: 'Dashboard', icon: 'pi pi-box', to: '/dashboard' },
-        { label: 'Productos', icon: 'pi pi-chart-bar', to: '/products' },
-        { label: 'Clientes', icon: 'pi pi-users', to: '/clientes' },
-        { label: 'Ventas', icon: 'pi pi-shopping-cart', to: '/ventas' },
-        { label: 'Reportes', icon: 'pi pi-chart-bar', to: '/reportes' },
-        { label: 'Configuración', icon: 'pi pi-cog', to: '/configuracion' },  
+        { label: 'Dashboard', icon: 'pi pi-home', to: '/dashboard' },
+        { label: 'Simulación', icon: 'pi pi-calculator', to: '/simulation' },
+        { label: 'Mis Solicitudes', icon: 'pi pi-file-text', to: '/my-loans' },
+      ]
+    },
+    {
+      title: 'Gestión',
+      items: [
+        { label: 'Clientes', icon: 'pi pi-users', to: '/clients' },
+        { label: 'Solicitudes', icon: 'pi pi-list', to: '/loans' },
+        { label: 'Aprobaciones', icon: 'pi pi-check-circle', to: '/approvals' },
+      ]
+    },
+    {
+      title: 'Administración',
+      items: [
+        { label: 'Tasas de Interés', icon: 'pi pi-percentage', to: '/interest-rates' },
+        { label: 'Configuración', icon: 'pi pi-cog', to: '/settings' },
+        { label: 'Reportes', icon: 'pi pi-chart-bar', to: '/reports' },
       ]
     },
     
@@ -90,7 +101,7 @@ export default function SidebarMenu({ onItemClick }: SidebarMenuProps) {
           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
           <div>
             <p className="text-theme-secondary text-sm font-medium">Sistema Activo</p>
-            <p className="text-theme-muted text-xs">Versión 2.1.0</p>
+            <p className="text-theme-muted text-xs">Créditos Libranza v1.0.0</p>
           </div>
         </div>
       </div>

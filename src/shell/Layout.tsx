@@ -48,8 +48,8 @@ export default function Layout() {
                   onClick={() => setSidebarOpen(true)}
                 />
                 <div className="flex flex-col">
-                  <h1 className="text-xl font-bold text-theme-primary">Dashboard</h1>
-                  <span className="text-sm text-theme-muted hidden sm:block">Gestión empresarial</span>
+                  <h1 className="text-xl font-bold text-theme-primary">Créditos Libranza</h1>
+                  <span className="text-sm text-theme-muted hidden sm:block">Sistema de préstamos</span>
                 </div>
               </div>
 
