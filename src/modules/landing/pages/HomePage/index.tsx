@@ -1,5 +1,5 @@
 import Hero from './components/Hero';
-import CreditSimulation from './components/CreditSimulation';
+import { CreditSimulation } from './components/CreditSimulation';
 import ClientsSection from './components/ClientsSection';
 import CreditProcess from './components/CreditProcess';
 import Cta from './components/Cta';

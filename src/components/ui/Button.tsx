@@ -3,7 +3,7 @@ import React, { type ButtonHTMLAttributes } from 'react';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'cta';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
@@ -28,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     primary: 'bg-button-background1 text-white hover:bg-button-background1Hover disabled:bg-gray-400',
     secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 disabled:bg-gray-100',
     outline: 'border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:border-gray-200 disabled:text-gray-400',
+    cta: 'bg-gradient-to-r from-[#FF8546] from-15% to-[#4264A9] font-semibold rounded-[10px] text-white hover:opacity-90 disabled:bg-gray-400',
   };
   
   const sizes = {
