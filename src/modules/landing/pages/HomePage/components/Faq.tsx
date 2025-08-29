@@ -41,59 +41,51 @@ export default function Faq() {
   };
 
   return (
-    <section id="faq" className="w-full bg-global-9 py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="w-full bg-global-2 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-plus-jakarta text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-global-2">
+          <h2 className="text-5xl font-normal text-global-12 mb-6">
             Preguntas frecuentes
           </h2>
+          <p className="text-base text-global-7 max-w-3xl mx-auto">
+            Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de crédito por libranza
+          </p>
         </div>
         
-        <div className="max-w-4xl mx-auto space-y-4">
-          {faqItems.map((item, index) => (
-            <div key={index} className="overflow-hidden">
-              {index === 2 ? (
-                // Expanded FAQ item (pre-expanded)
-                <div className="bg-global-7 rounded-lg shadow-sm p-6">
-                  <div className="flex justify-between items-start gap-4">
-                    <h3 className="font-plus-jakarta text-lg md:text-xl font-medium leading-tight text-global-1 flex-1">
-                      {item.question}
-                    </h3>
-                    <img
-                      src={arrowDownOrangeIcon}
-                      alt="Expanded"
-                      className="w-6 h-6 flex-shrink-0"
-                    />
-                  </div>
-                  <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-global-9">
-                    {item.answer}
-                  </p>
-                </div>
-              ) : (
-                // Regular FAQ item
-                <div 
-                  className="bg-global-11 rounded-lg shadow-sm p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-6">
+            {faqItems.map((item, index) => (
+              <div key={index} className="relative">
+                <div
+                  className="bg-white rounded-2xl p-6 md:p-8 cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md hover:border-orange-200"
                   onClick={() => toggleFAQ(index)}
                 >
                   <div className="flex justify-between items-start gap-4">
-                    <h3 className="font-plus-jakarta text-lg md:text-xl font-medium leading-tight text-global-8 flex-1">
+                    <h3 className="text-xl font-semibold leading-tight text-global-12 flex-1">
                       {item.question}
                     </h3>
-                    <img
-                      src={arrowDownIcon}
-                      alt="Expand"
-                      className={`w-6 h-6 flex-shrink-0 transition-transform duration-200 ${selectedFAQ === index ? 'rotate-180' : ''}`}
-                    />
+                    <div className="flex items-center gap-2">
+                      {selectedFAQ === index && (
+                        <div className="w-1 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full"></div>
+                      )}
+                      <img
+                        src={selectedFAQ === index ? arrowDownOrangeIcon : arrowDownIcon}
+                        alt={selectedFAQ === index ? "Collapse" : "Expand"}
+                        className={`w-6 h-6 flex-shrink-0 transition-all duration-300 ${selectedFAQ === index ? 'rotate-180' : ''}`}
+                      />
+                    </div>
                   </div>
                   {selectedFAQ === index && (
-                    <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-global-9">
-                      {item.answer}
-                    </p>
+                    <div className="mt-4 pt-4 border-t border-orange-200">
+                      <p className="text-base leading-relaxed text-global-7">
+                        {item.answer}
+                      </p>
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
