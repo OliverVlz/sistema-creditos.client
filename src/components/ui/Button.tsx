@@ -4,7 +4,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'outline' | 'cta';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'xlarge';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   fullWidth?: boolean;
@@ -35,6 +35,7 @@ const Button: React.FC<ButtonProps> = ({
     small: 'px-2 py-1 text-xs sm:px-3 sm:py-1.5 sm:text-sm',
     medium: 'px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base',
     large: 'px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-base',
+    xlarge: 'px-12 py-5 text-base sm:px-12 sm:py-5 sm:text-xl',
   };
   
   const buttonClasses = `
