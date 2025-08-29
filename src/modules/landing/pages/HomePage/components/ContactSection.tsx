@@ -120,7 +120,7 @@ export default function ContactSection() {
               <div className="flex items-center gap-3 mb-8">
 
                 <h3 className="text-2xl md:text-3xl font-semibold text-global-12 leading-tight">
-                  Solicita asesoría para tu crédito por libranza
+                  Solicita asesoría para tu crédito por libranza 
                 </h3>
               </div>
 
