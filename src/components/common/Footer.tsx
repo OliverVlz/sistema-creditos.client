@@ -15,18 +15,18 @@ const Footer = () => {
   return (
     <footer className={`w-full bg-[#333333] ${PADDING}`}>
       <div className="w-full max-w-[1440px] mx-auto">
-        <div className="flex flex-col gap-2 sm:gap-2 md:gap-2 justify-start items-center w-full mt-[24px] sm:mt-[28px] md:mt-[32px]">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center w-full px-[40px] sm:px-[48px] md:px-[56px] lg:px-[64px] gap-8 lg:gap-0">
+        <div className="flex flex-col gap-2 justify-start items-center w-full mt-[24px] sm:mt-[28px] md:mt-[32px]">
+          <div className="flex flex-col lg:flex-row justify-between w-full px-[40px] sm:px-[48px] md:px-[56px] lg:px-[64px] gap-8 lg:gap-0">
             {/* Contact Section */}
-            <div className="flex flex-col justify-start items-start w-full lg:w-auto">
+            <div className="flex flex-col justify-start items-start w-full">
               <div className="pl-2">
-                <h3 className={`font-plus-jakarta ${HEADING_SIZE} leading-[24px] text-left text-white mb-6`}>
+                <h3 className={`font-plus-jakarta ${HEADING_SIZE} text-left text-white mb-6 w-full`}>
                   Contactanos
                 </h3>
               </div>
 
               {/* Contact Items */}
-              <div className="flex flex-col gap-[10px] sm:gap-[10px] md:gap-[10px]">
+              <div className="flex flex-col gap-[10px]">
                 {/* WhatsApp */}
                 <div className={`flex flex-row ${SPACING} justify-start items-center w-auto p-2 rounded-md hover:bg-white/5 transition-colors duration-200`}>
                   <div className="flex-shrink-0">
@@ -69,36 +69,32 @@ const Footer = () => {
               </div>
             </div>
             
-            {/* Logo and Legal Section */}
-            <div className="flex flex-col lg:flex-row justify-between items-center w-full lg:w-[56%] gap-8 lg:gap-0">
-              {/* Logo */}
-              <div className="flex-shrink-0 flex justify-center items-center">
-                <img
+            {/* Logo Section */}
+            <div className="flex w-full justify-center">  
+
+                  <img
                   src={logoWhite}
                   alt="Company Logo"
-                  className="w-full max-w-[180px] sm:max-w-[200px] md:max-w-[220px] h-auto lg:w-[80%] object-contain"
+                  className="w-full max-w-[150px] h-auto lg:w-[100%] object-contain"
                 />
-              </div>
 
-              {/* Legal Links */}
-              <div className="flex flex-col gap-[6px] sm:gap-[8px] md:gap-[10px] justify-start items-center lg:items-end w-auto">
-                <div className="mb-3">
-                  <h3 className={`font-plus-jakarta ${HEADING_SIZE} font-extrabold leading-[20px] sm:leading-[24px] md:leading-[28px] text-center lg:text-left text-white`}>
-                    Legales
-                  </h3>
-                </div>
-                <div className="flex flex-col gap-[8px] sm:gap-[10px] md:gap-[12px]">
-                  {[
-                    "Condiciones de crédito",
-                    "Tratamiento de datos",
-                    "Politicas de seguridad e internet",
-                    "Aviso de privacidad"
-                  ].map((link, index) => (
-                    <span key={index} className={`font-plus-jakarta ${TEXT_SIZE} font-medium leading-[18px] sm:leading-[20px] md:leading-[22px] text-center lg:text-right text-white/90 hover:text-white cursor-pointer transition-colors duration-200 px-1.5 py-0.5 rounded hover:bg-white/10`}>
-                      {link}
-                    </span>
-                  ))}
-                </div>
+            </div>
+            {/* Legal Section */}
+            <div className="flex flex-col text-right w-full">
+              <h3 className={`font-plus-jakarta ${HEADING_SIZE} text-white mb-6 w-full`}>
+                Legales
+              </h3>
+              <div className="flex flex-col gap-[8px] sm:gap-[10px] md:gap-[12px]">
+                {[
+                  "Condiciones de crédito",
+                  "Tratamiento de datos",
+                  "Politicas de seguridad e internet",
+                  "Aviso de privacidad"
+                ].map((link, index) => (
+                  <span key={index} className={`font-plus-jakarta ${TEXT_SIZE} text-white/90 hover:text-white cursor-pointer transition-colors duration-200 px-1.5 py-0.5 rounded hover:bg-white/10 w-full`}>
+                    {link}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
