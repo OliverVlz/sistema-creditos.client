@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import EditText from '../../ui/EditText';
 import Dropdown from '../../ui/Dropdown';
 import Button from '../../ui/Button';
+import arrowDownIcon from '../../../assets/images/landing/img_arrowdown.svg';
 
 const loanTermOptions = Array.from({ length: 120 }, (_, i) => ({
   label: String(i + 1),
@@ -41,7 +41,7 @@ export const LoanCalculator: React.FC = () => {
             value={loanTerm}
             onChange={(value) => setLoanTerm(String(value))}
             rightIcon={{
-              src: "/images/img_arrowdown.svg",
+              src: arrowDownIcon,
               width: 12,
               height: 10
             }}

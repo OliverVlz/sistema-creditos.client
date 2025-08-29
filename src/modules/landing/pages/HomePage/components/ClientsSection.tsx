@@ -1,55 +1,105 @@
-export default function ClientsSection() {
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Section from '../../../../../components/layout/Section';
+import ejercitoImage from '../../../../../assets/images/landing/img_image_7.png';
+import armadaImage from '../../../../../assets/images/landing/img_image_10.png';
+import fuerzaAereaImage from '../../../../../assets/images/landing/img_image_9_226x226.png';
+import policiaImage from '../../../../../assets/images/landing/img_image_8.png';
+import {
+  EJERCITO_NACIONAL_ROUTE,
+  ARMADA_NACIONAL_ROUTE,
+  FUERZA_AERESPACIAL_ROUTE,
+  POLICIA_NACIONAL_ROUTE
+} from '../../../../../routes/routes';
+
+export const ClientsSection: React.FC = () => {
   const clients = [
     {
       name: "Ejercito Nacional",
-      image: "/images/img_image_7.png"
+      image: ejercitoImage,
+      route: EJERCITO_NACIONAL_ROUTE,
+      description: "Defensa y Honor Nacional"
     },
     {
-      name: "Armada Nacional", 
-      image: "/images/img_image_10.png"
+      name: "Armada Nacional",
+      image: armadaImage,
+      route: ARMADA_NACIONAL_ROUTE,
+      description: "Poder Naval Colombiano"
     },
     {
       name: "Fuerza Aeroespacial",
-      image: "/images/img_image_9_226x226.png"
+      image: fuerzaAereaImage,
+      route: FUERZA_AERESPACIAL_ROUTE,
+      description: "Dominio del Cielo Colombiano"
     },
     {
       name: "Policía Nacional",
-      image: "/images/img_image_8.png"
+      image: policiaImage,
+      route: POLICIA_NACIONAL_ROUTE,
+      description: "Protección y Servicio Ciudadano"
     }
   ];
 
   return (
-    <section id="clientes" className="w-full bg-global-11 py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-plus-jakarta text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-global-2 mb-6">
-            Nuestros clientes
-          </h2>
-          
-          <p className="text-base md:text-lg leading-relaxed text-global-4 max-w-4xl mx-auto">
-            Sabemos lo que significa servir al país. Por eso ofrecemos créditos por libranza para pensionados y activos del Ejército, Armada, Fuerza Aeroespacial y Policía Nacional, con transparencia total, sin costos ocultos y acompañamiento personalizado hasta el desembolso
-          </p>
-        </div>
+    <Section id="clientes" className="w-full py-20 md:pb-32 bg-global-11">
+      <div className="text-center mb-20">
+        <h2 className="text-5xl font-normal text-global-12 mb-6">
+          Nuestros clientes
+        </h2>
         
-        {/* Client Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {clients.map((client, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="mb-6">
-                <img 
+        <p className="font-normal text-global-7 mb-8 max-w-4xl mx-auto">
+          Sabemos lo que significa servir al país. Por eso ofrecemos créditos por libranza para pensionados y activos del Ejército, Armada, Fuerza Aeroespacial y Policía Nacional, con transparencia total, sin costos ocultos y acompañamiento personalizado hasta el desembolso.
+        </p>
+      </div>
+      
+      {/* Client Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        {clients.map((client, index) => (
+          <Link
+            key={index}
+            to={client.route}
+            className="group flex flex-col items-center text-center"
+          >
+            <div className="relative mb-6 cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl group-hover:shadow-2xl">
+              <div className="relative overflow-hidden rounded-3xl">
+                <img
                   src={client.image}
                   alt={client.name}
-                  className="w-full max-w-[200px] h-auto rounded-2xl mx-auto shadow-lg" 
+                  className="w-full max-w-[200px] h-auto mx-auto transition-all duration-300 group-hover:brightness-110"
                 />
+
+                {/* Overlay de navegación */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <svg className="w-6 h-6 text-global-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-plus-jakarta text-lg sm:text-xl md:text-2xl font-semibold leading-tight text-global-4">
-                {client.name}
-              </h3>
             </div>
-          ))}
-        </div>
+
+            <h3 className="font-plus-jakarta text-md sm:text-lg md:text-lg font-semibold leading-tight text-global-10 group-hover:text-button-background1 transition-colors duration-300 mb-2">
+              {client.name}
+            </h3>
+
+            <p className="text-sm text-global-6 group-hover:text-global-8 transition-colors duration-300">
+              {client.description}
+            </p>
+
+            {/* Indicador de navegación */}
+            <div className="mt-3 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="text-xs text-global-7 font-medium">Ver detalles</span>
+              <svg className="w-4 h-4 text-global-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </Link>
+        ))}
       </div>
-    </section>
+
+
+    </Section>
   );
-}
+};
 

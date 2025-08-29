@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import arrowDownOrangeIcon from '../../../../../assets/images/landing/img_icons_arrow_drop_down_48px_deep_orange_400_01.svg';
+import arrowDownIcon from '../../../../../assets/images/landing/img_icons_arrow_drop_down_48px.svg';
 
 export default function Faq() {
   const [selectedFAQ, setSelectedFAQ] = useState<number | null>(null);
@@ -57,10 +59,10 @@ export default function Faq() {
                     <h3 className="font-plus-jakarta text-lg md:text-xl font-medium leading-tight text-global-1 flex-1">
                       {item.question}
                     </h3>
-                    <img 
-                      src="/images/img_icons_arrow_drop_down_48px_deep_orange_400_01.svg" 
-                      alt="Expanded" 
-                      className="w-6 h-6 flex-shrink-0" 
+                    <img
+                      src={arrowDownOrangeIcon}
+                      alt="Expanded"
+                      className="w-6 h-6 flex-shrink-0"
                     />
                   </div>
                   <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-global-9">
@@ -77,9 +79,9 @@ export default function Faq() {
                     <h3 className="font-plus-jakarta text-lg md:text-xl font-medium leading-tight text-global-8 flex-1">
                       {item.question}
                     </h3>
-                    <img 
-                      src="/images/img_icons_arrow_drop_down_48px.svg" 
-                      alt="Expand" 
+                    <img
+                      src={arrowDownIcon}
+                      alt="Expand"
                       className={`w-6 h-6 flex-shrink-0 transition-transform duration-200 ${selectedFAQ === index ? 'rotate-180' : ''}`}
                     />
                   </div>

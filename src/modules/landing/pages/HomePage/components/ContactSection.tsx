@@ -1,22 +1,25 @@
 import Button from '../../../../../components/ui/Button';
+import emailIcon from '../../../../../assets/images/landing/img_group.svg';
+import phoneIcon from '../../../../../assets/images/landing/img_phone.svg';
+import locationIcon from '../../../../../assets/images/landing/img_location.svg';
 
 export default function ContactSection() {
   const contactInfo = [
     {
-      icon: "/images/img_group.svg",
+      icon: emailIcon,
       label: "Email",
       value: "inversionesmurillomartinez@outlook.es",
       iconClass: "w-4 h-3"
     },
     {
-      icon: "/images/img_phone.svg", 
+      icon: phoneIcon,
       label: "Teléfono",
       value: "315 8008588",
       iconClass: "w-6 h-4"
     },
     {
-      icon: "/images/img_location.svg",
-      label: "Dirección", 
+      icon: locationIcon,
+      label: "Dirección",
       value: "Calle 25 N 12-27 110110 Bogotá, Colombia",
       iconClass: "w-7 h-5"
     }

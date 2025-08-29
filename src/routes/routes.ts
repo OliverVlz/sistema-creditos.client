@@ -6,6 +6,12 @@ export const ABOUT_ROUTE = '/about';
 export const SERVICES_ROUTE = '/services';
 export const CREDIT_POLICIES_ROUTE = '/credit-policies';
 
+// Rutas de instituciones
+export const EJERCITO_NACIONAL_ROUTE = '/ejercito-nacional';
+export const ARMADA_NACIONAL_ROUTE = '/armada-nacional';
+export const FUERZA_AERESPACIAL_ROUTE = '/fuerza-aeroespacial';
+export const POLICIA_NACIONAL_ROUTE = '/policia-nacional';
+
 // Rutas privadas
 export const DASHBOARD_ROUTE = '/dashboard';
 export const SIMULATION_ROUTE = '/simulation';

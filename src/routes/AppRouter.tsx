@@ -7,6 +7,10 @@ import ServicesPage from '../modules/landing/pages/ServicesPage'
 import AboutPage from '../modules/landing/pages/AboutPage'
 import RegisterPage from '../modules/landing/pages/RegisterPage'
 import LoginPage from '../modules/landing/pages/LoginPage'
+import EjercitoNacionalPage from '../modules/landing/pages/EjercitoNacionalPage'
+import ArmadaNacionalPage from '../modules/landing/pages/ArmadaNacionalPage'
+import FuerzaAeroespacialPage from '../modules/landing/pages/FuerzaAeroespacialPage'
+import PoliciaNacionalPage from '../modules/landing/pages/PoliciaNacionalPage'
 import Dashboard from '../modules/dashboard/pages/Dashboard'
 import ClientsPage from '../modules/clients/pages/ClientsPage'
 import SimulationPage from '../modules/simulation/pages/SimulationPage'
@@ -19,6 +23,10 @@ import {
   ABOUT_ROUTE,
   SERVICES_ROUTE,
   CREDIT_POLICIES_ROUTE,
+  EJERCITO_NACIONAL_ROUTE,
+  ARMADA_NACIONAL_ROUTE,
+  FUERZA_AERESPACIAL_ROUTE,
+  POLICIA_NACIONAL_ROUTE,
   DASHBOARD_ROUTE
 } from './routes'
 
@@ -36,6 +44,10 @@ export default function AppRouter() {
         <Route path={SERVICES_ROUTE} element={<ServicesPage />} />
         <Route path={ABOUT_ROUTE} element={<AboutPage />} />
         <Route path={CREDIT_POLICIES_ROUTE} element={<CreditPoliciePage />} />
+        <Route path={EJERCITO_NACIONAL_ROUTE} element={<EjercitoNacionalPage />} />
+        <Route path={ARMADA_NACIONAL_ROUTE} element={<ArmadaNacionalPage />} />
+        <Route path={FUERZA_AERESPACIAL_ROUTE} element={<FuerzaAeroespacialPage />} />
+        <Route path={POLICIA_NACIONAL_ROUTE} element={<PoliciaNacionalPage />} />
       </Route>
 
       {/* ===== RUTAS DE AUTENTICACIÓN (TEMPORALMENTE DESHABILITADAS) ===== */}
