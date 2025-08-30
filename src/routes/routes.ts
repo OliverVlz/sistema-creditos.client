@@ -1,10 +1,10 @@
 // Rutas públicas
 export const LANDING_ROUTE = '/';
 export const LOGIN_ROUTE = '/login';
-export const REGISTER_ROUTE = '/register';
-export const ABOUT_ROUTE = '/about';
-export const SERVICES_ROUTE = '/services';
-export const CREDIT_POLICIES_ROUTE = '/credit-policies';
+export const REGISTER_ROUTE = '/registro';
+export const ABOUT_ROUTE = '/sobre-nosotros';
+export const SERVICES_ROUTE = '/servicios';
+export const CREDIT_POLICIES_ROUTE = '/politicas-credito';
 
 // Rutas de instituciones
 export const EJERCITO_NACIONAL_ROUTE = '/ejercito-nacional';

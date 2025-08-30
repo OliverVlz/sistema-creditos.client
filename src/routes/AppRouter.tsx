@@ -40,7 +40,7 @@ export default function AppRouter() {
         </PublicRoute>
       }>
         <Route index element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/inicio" element={<Navigate to="/" replace />} />
         <Route path={SERVICES_ROUTE} element={<ServicesPage />} />
         <Route path={ABOUT_ROUTE} element={<AboutPage />} />
         <Route path={CREDIT_POLICIES_ROUTE} element={<CreditPoliciePage />} />
