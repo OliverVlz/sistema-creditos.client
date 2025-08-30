@@ -46,7 +46,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contacto" className="w-full bg-[#F6F6F6] py-20 md:py-28 relative overflow-hidden">
+    <section id="contacto" className="w-full bg-[#F6F6F6] py-20 md:pt-20 md:pb-32 relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 bg-orange-200/30 rounded-full blur-3xl"></div>
@@ -61,7 +61,7 @@ export default function ContactSection() {
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <h2 className="text-4xl md:text-5xl font-normal text-global-12 leading-tight">
-                  ¿Tienes dudas y necesitas ayuda?
+                  ¿Necesitas ayuda?
                 </h2>
               </div>
               <p className="text-lg text-global-7 leading-relaxed">
@@ -69,7 +69,7 @@ export default function ContactSection() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
               <h3 className="text-2xl font-semibold text-global-12 mb-6 flex items-center gap-2">
                 <div className="w-1 h-6 bg-gradient-to-b from-orange-100 to-orange-100 rounded-full"></div>
                 Información de contacto
@@ -114,7 +114,7 @@ export default function ContactSection() {
           </div>
           
           {/* Right Contact Form */}
-          <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12 border border-gray-100 relative overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-sm p-7 md:p-12 border border-gray-100 relative overflow-hidden">
             
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-8">

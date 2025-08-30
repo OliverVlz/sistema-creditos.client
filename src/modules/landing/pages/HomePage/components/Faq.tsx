@@ -42,7 +42,7 @@ export default function Faq() {
 
   return (
     <section id="faq" className="w-full bg-global-2 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-normal text-global-12 mb-6">
             Preguntas frecuentes
