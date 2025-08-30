@@ -39,9 +39,9 @@ export default function Header() {
           >
             Servicios
           </a>
-          <a 
-            className={isActiveSection('sobre') ? 'nav-link-active' : 'nav-link-default'} 
-            href="#sobre"
+          <a
+            className={isActiveSection('about') ? 'nav-link-active' : 'nav-link-default'}
+            href="/about"
           >
             Sobre nosotros
           </a>
