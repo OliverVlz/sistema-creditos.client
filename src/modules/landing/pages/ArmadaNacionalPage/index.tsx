@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArmadaHero } from './components/ArmadaHero';
 import Section from '../../../../components/layout/Section';
 
 export default function ArmadaNacionalPage() {
   const [userType, setUserType] = useState<'pensionado' | 'activo'>('activo');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const miniCards = [
     { icon: '💰', title: 'Hasta', value: '5\'000.000', subtitle: 'Monto máximo' },

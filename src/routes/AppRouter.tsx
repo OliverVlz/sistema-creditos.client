@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingLayout from '../components/layout/LandingLayout'
 import Layout from '../components/layout/Layout'
 import HomePage from '../modules/landing/pages/HomePage'
-import CreditPoliciePage from '../modules/landing/pages/CreditPoliciePage'
 import ServicesPage from '../modules/landing/pages/ServicesPage'
 import AboutPage from '../modules/landing/pages/AboutPage'
 import RegisterPage from '../modules/landing/pages/RegisterPage'
@@ -22,7 +21,6 @@ import {
   REGISTER_ROUTE,
   ABOUT_ROUTE,
   SERVICES_ROUTE,
-  CREDIT_POLICIES_ROUTE,
   EJERCITO_NACIONAL_ROUTE,
   ARMADA_NACIONAL_ROUTE,
   FUERZA_AERESPACIAL_ROUTE,
@@ -43,7 +41,6 @@ export default function AppRouter() {
         <Route path="/inicio" element={<Navigate to="/" replace />} />
         <Route path={SERVICES_ROUTE} element={<ServicesPage />} />
         <Route path={ABOUT_ROUTE} element={<AboutPage />} />
-        <Route path={CREDIT_POLICIES_ROUTE} element={<CreditPoliciePage />} />
         <Route path={EJERCITO_NACIONAL_ROUTE} element={<EjercitoNacionalPage />} />
         <Route path={ARMADA_NACIONAL_ROUTE} element={<ArmadaNacionalPage />} />
         <Route path={FUERZA_AERESPACIAL_ROUTE} element={<FuerzaAeroespacialPage />} />
