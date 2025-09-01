@@ -158,14 +158,6 @@ export default function RegisterForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50 flex flex-col">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-orange-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 right-20 w-40 h-40 bg-blue-200/15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-orange-100/30 to-blue-100/30 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative z-10 flex-1 py-8 pb-16">
 
         {/* Formulario principal */}
         <section className="w-full py-4">
@@ -390,7 +382,7 @@ export default function RegisterForm() {
             </div>
           </div>
         </section>
-      </div>
+      
     </div>
   );
 }
