@@ -28,7 +28,7 @@ const EditText: React.FC<EditTextProps> = ({
     }
   };
 
-  const baseClasses = 'w-full border border-[#7b7c7e] rounded font-plus-jakarta text-[14px] sm:text-[16px] md:text-[18px] font-normal leading-[18px] sm:leading-[21px] md:leading-[23px] text-global-10 uppercase transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent';
+  const baseClasses = 'w-full border border-[#7b7c7e] rounded font-plus-jakarta text-[13px] sm:text-[14px] md:text-[15px] font-normal leading-[16px] sm:leading-[18px] md:leading-[19px] text-global-10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent';
   
   const inputClasses = `
     ${baseClasses}
@@ -43,7 +43,7 @@ const EditText: React.FC<EditTextProps> = ({
       value={inputValue}
       onChange={handleChange}
       disabled={disabled}
-      className={`${inputClasses} pt-[10px] sm:pt-[12px] md:pt-[14px] pr-[10px] sm:pr-[12px] md:pr-[14px] pb-[10px] sm:pb-[12px] md:pb-[14px] pl-[10px] sm:pl-[12px] md:pl-[14px]`}
+      className={`${inputClasses} pt-[8px] sm:pt-[9px] md:pt-[10px] pr-[10px] sm:pr-[12px] md:pr-[12px] pb-[8px] sm:pb-[9px] md:pb-[10px] pl-[10px] sm:pl-[12px] md:pl-[12px]`}
       {...props}
     />
   );

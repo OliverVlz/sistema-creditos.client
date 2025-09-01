@@ -15,7 +15,6 @@ export default function EjercitoNacionalPage() {
 
       <InstitutionContent
         institutionName="el Ejército Nacional"
-        gradientColors={{ from: 'from-green-600', to: 'to-green-700' }}
         userType={userType}
         onUserTypeChange={setUserType}
       />

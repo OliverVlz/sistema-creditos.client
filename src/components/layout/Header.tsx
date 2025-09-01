@@ -8,6 +8,7 @@ export default function Header() {
   const navigate = useNavigate();
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState<number | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActiveSection = (sectionId: string) => {
     if (location.pathname === '/') {
@@ -189,17 +190,120 @@ export default function Header() {
         </nav>
 
         {/* Mobile menu button */}
-        <button className="lg:hidden p-2  rounded-md transition-colors" aria-label="Abrir menú">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="lg:hidden p-2 rounded-md transition-colors hover:bg-gray-100"
+          aria-label="Abrir menú"
+        >
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
               strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
+              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
             />
           </svg>
         </button>
       </div>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden border-t border-slate-200 bg-white">
+          <nav className="px-4 py-6 space-y-4">
+            <Link
+              to="/"
+              className="block py-2 text-gray-700 hover:text-orange-600 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Inicio
+            </Link>
+
+            <div className="space-y-2">
+              <div className="font-medium text-gray-900 py-2">Servicios</div>
+              <Link
+                to="/servicios"
+                className="block py-2 pl-4 text-sm text-gray-700 hover:text-orange-600 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Todos nuestros servicios
+              </Link>
+
+              <div className="py-2 pl-4 text-xs font-semibold text-gray-600 uppercase tracking-wide bg-orange-50/50 rounded px-2">
+                Créditos por Libranza
+              </div>
+
+              <Link
+                to="/ejercito-nacional"
+                className="block py-2 pl-4 text-sm text-gray-700 hover:text-green-700 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Ejército Nacional
+              </Link>
+
+              <Link
+                to="/armada-nacional"
+                className="block py-2 pl-4 text-sm text-gray-700 hover:text-blue-700 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Armada Nacional
+              </Link>
+
+              <Link
+                to="/fuerza-aeroespacial"
+                className="block py-2 pl-4 text-sm text-gray-700 hover:text-sky-700 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Fuerza Aeroespacial
+              </Link>
+
+              <Link
+                to="/policia-nacional"
+                className="block py-2 pl-4 text-sm text-gray-700 hover:text-red-700 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Policía Nacional
+              </Link>
+            </div>
+
+            <Link
+              to="/sobre-nosotros"
+              className="block py-2 text-gray-700 hover:text-orange-600 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Sobre nosotros
+            </Link>
+
+            <button
+              onClick={(e) => {
+                handleContactClick(e);
+                setIsMobileMenuOpen(false);
+              }}
+              className="block py-2 text-gray-700 hover:text-orange-600 transition-colors text-left"
+            >
+              Contáctanos
+            </button>
+
+            <div className="pt-4 border-t border-gray-200 space-y-3">
+              <Link
+                to="/registro"
+                className="block py-2 text-center text-orange-600 hover:text-orange-700 transition-colors font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Regístrate
+              </Link>
+
+              <Link
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Button variant="primary" size="medium" className="w-full">
+                  Ingresar
+                </Button>
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

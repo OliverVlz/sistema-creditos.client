@@ -15,7 +15,6 @@ export default function FuerzaAeroespacialPage() {
 
       <InstitutionContent
         institutionName="la Fuerza Aeroespacial"
-        gradientColors={{ from: 'from-sky-600', to: 'to-sky-700' }}
         userType={userType}
         onUserTypeChange={setUserType}
       />

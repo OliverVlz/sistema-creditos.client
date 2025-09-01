@@ -67,13 +67,8 @@ export default function AppRouter() {
       */}
 
       {/* Rutas temporales sin autenticación */}
-      <Route path={REGISTER_ROUTE} element={<LandingLayout />}>
-        <Route index element={<RegisterPage />} />
-      </Route>
-
-      <Route path={LOGIN_ROUTE} element={<LandingLayout />}>
-        <Route index element={<LoginPage />} />
-      </Route>
+      <Route path={REGISTER_ROUTE} element={<RegisterRoute />} />
+      <Route path={LOGIN_ROUTE} element={<LoginRoute />} />
 
       {/* ===== RUTAS PRIVADAS (Dashboard) - SIN AUTENTICACIÓN TEMPORAL ===== */}
       <Route path={DASHBOARD_ROUTE} element={
@@ -101,5 +96,22 @@ export default function AppRouter() {
       {/* Redirect para rutas no encontradas */}
       <Route path="*" element={<Navigate to={LANDING_ROUTE} replace />} />
     </Routes>
+  )
+}
+
+// Componentes auxiliares para rutas de autenticación
+function RegisterRoute() {
+  return (
+    <LandingLayout>
+      <RegisterPage />
+    </LandingLayout>
+  )
+}
+
+function LoginRoute() {
+  return (
+    <LandingLayout>
+      <LoginPage />
+    </LandingLayout>
   )
 }
