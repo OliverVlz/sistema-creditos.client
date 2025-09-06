@@ -1,10 +1,13 @@
-import ServicesHero from './components/ServicesHero';
+import ServicesLibranza from './components/ServicesLibranza';
+import Divider from './components/divider';
+import ServicesHipoteca from './components/ServicesHipoteca';
 
 export default function ServicesPage() {
   return (
     <>
-      <ServicesHero />
-      {/* <ServicesList />   */}
+      <ServicesLibranza />
+      <Divider />
+      <ServicesHipoteca />
     </>
   );
 }

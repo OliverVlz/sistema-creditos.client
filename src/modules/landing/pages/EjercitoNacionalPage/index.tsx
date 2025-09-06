@@ -3,7 +3,7 @@ import { EjercitoHero } from './components/EjercitoHero';
 import { InstitutionContent } from '../../../../components/business/InstitutionContent';
 
 export default function EjercitoNacionalPage() {
-  const [userType, setUserType] = useState<'pensionado' | 'activo'>('activo');
+  const [userType, setUserType] = useState<'pensionado' | 'activo'>('pensionado');
 
   useEffect(() => {
     window.scrollTo(0, 0);

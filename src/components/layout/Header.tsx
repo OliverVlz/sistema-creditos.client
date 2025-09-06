@@ -98,7 +98,7 @@ export default function Header() {
             {/* Dropdown Menu */}
             {isServicesDropdownOpen && (
               <div
-                className="absolute top-full left-0 mt-2 w-72 p-5 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
                 onMouseEnter={() => {
                   if (dropdownTimeout) {
                     clearTimeout(dropdownTimeout);
@@ -115,47 +115,67 @@ export default function Header() {
                 {/* Todos nuestros servicios */}
                 <Link
                   to="/servicios"
-                  className="px-6 py-3 text-sm text-gray-700 hover:text-orange-600 transition-colors border-b border-gray-100 cursor-pointer"
+                  className="text-sm text-gray-700 hover:text-orange-600 transition-colors border-b border-gray-100 cursor-pointer"
                 >
-                  <div className="font-medium">Todos nuestros servicios</div>
-                  <div className="text-xs text-gray-500 mt-1">Conoce todas las opciones disponibles</div>
+                  <div className="py-3 px-6">
+                    <div className="font-medium">Todos nuestros servicios</div>
+                    <div className="text-xs text-gray-500 mt-1">Conoce todas las opciones disponibles</div>
+                  </div>
                 </Link>
 
                 {/* Créditos por Libranza */}
-                <div className="py-2 text-center bg-orange-50/50">
-                  <h3 className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Créditos por Libranza</h3>
+                <div className="relative z-10 bg-orange-50/60 rounded mx-auto">
+                  <div className="flex items-center gap-1 text-xs py-3 font-semibold text-button-background1/80 uppercase tracking-wide px-6">
+                    Créditos por Libranza
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </div>
 
                 <Link
                   to="/ejercito-nacional"
-                  className="px-6 py-3 text-sm text-gray-700 hover:text-green-700 transition-colors cursor-pointer"
+                  className="text-sm text-gray-700 hover:text-green-700 transition-colors cursor-pointer"
                 >
-                  <div className="font-medium">Ejército Nacional</div>
-                  <div className="text-xs text-gray-500 mt-1">Créditos para personal militar</div>
+                  <div className="py-3 px-6">
+                    <div className="font-medium">Ejército Nacional</div>
+                    <div className="text-xs text-gray-500 mt-1">Créditos para personal militar</div>
+                  </div>
                 </Link>
 
                 <Link
                   to="/armada-nacional"
-                  className="px-6 py-3 text-sm text-gray-700 hover:text-blue-700 transition-colors cursor-pointer"
+                  className="text-sm text-gray-700 hover:text-blue-700 transition-colors cursor-pointer"
                 >
-                  <div className="font-medium">Armada Nacional</div>
-                  <div className="text-xs text-gray-500 mt-1">Créditos para personal naval</div>
+                  <div className="py-3 px-6">
+                    <div className="font-medium">Armada Nacional</div>
+                    <div className="text-xs text-gray-500 mt-1">Créditos para personal naval</div>
+                  </div>
                 </Link>
 
                 <Link
                   to="/fuerza-aeroespacial"
-                  className="px-6 py-3 text-sm text-gray-700 hover:text-sky-700 transition-colors cursor-pointer"
+                  className="text-sm text-gray-700 hover:text-sky-700 transition-colors cursor-pointer"
                 >
-                  <div className="font-medium">Fuerza Aeroespacial</div>
-                  <div className="text-xs text-gray-500 mt-1">Créditos para personal aéreo</div>
+                  <div className="py-3 px-6">
+                    <div className="font-medium">Fuerza Aeroespacial</div>
+                    <div className="text-xs text-gray-500 mt-1">Créditos para personal aéreo</div>
+                  </div>
                 </Link>
 
                 <Link
                   to="/policia-nacional"
-                  className="px-6 py-3 text-sm text-gray-700 hover:text-red-700 transition-colors cursor-pointer"
+                  className="text-sm text-gray-700 hover:text-red-700 transition-colors cursor-pointer"
                 >
-                  <div className="font-medium">Policía Nacional</div>
-                  <div className="text-xs text-gray-500 mt-1">Créditos para personal policial</div>
+                  <div className="py-3 px-6">
+                    <div className="font-medium">Policía Nacional</div>
+                    <div className="text-xs text-gray-500 mt-1">Créditos para personal policial</div>
+                  </div>
                 </Link>
               </div>
             )}
@@ -228,7 +248,7 @@ export default function Header() {
                 Todos nuestros servicios
               </Link>
 
-              <div className="py-2 pl-4 text-xs font-semibold text-gray-600 uppercase tracking-wide bg-orange-50/50 rounded px-2">
+              <div className="py-2 text-xs font-semibold text-gray-600 uppercase bg-orange-50/50 rounded">
                 Créditos por Libranza
               </div>
 

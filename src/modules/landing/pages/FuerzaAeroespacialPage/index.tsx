@@ -3,7 +3,7 @@ import { FuerzaAereaHero } from './components/FuerzaAereaHero';
 import { InstitutionContent } from '../../../../components/business/InstitutionContent';
 
 export default function FuerzaAeroespacialPage() {
-  const [userType, setUserType] = useState<'pensionado' | 'activo'>('activo');
+  const [userType, setUserType] = useState<'pensionado' | 'activo'>('pensionado');
 
   useEffect(() => {
     window.scrollTo(0, 0);

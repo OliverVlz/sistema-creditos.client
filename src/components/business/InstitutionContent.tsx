@@ -74,7 +74,7 @@ export const InstitutionContent: React.FC<InstitutionContentProps> = ({
         </section>
 
       {/* Sección de Documentos */}
-        <section id="documents" className="max-w-6xl mx-auto py-16">
+        <section id="documents" className="max-w-5xl mx-auto py-16">
           <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12">
 
             {/* Botones para cambiar entre pensionado/activo */}
@@ -169,7 +169,7 @@ export const InstitutionContent: React.FC<InstitutionContentProps> = ({
         </section>
 
       {/* Sección de Tasas y Tarifas */}  
-        <section id="rates-and-fees" className="max-w-6xl mx-auto pt-12 pb-10">
+        <section id="rates-and-fees" className="max-w-5xl mx-auto pt-12 pb-10">
           <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12">
             <h2 className="text-3xl font-bold text-global-12 mb-8 text-center">
               Tasas y Tarifas

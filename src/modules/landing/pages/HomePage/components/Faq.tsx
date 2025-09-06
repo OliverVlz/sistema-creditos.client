@@ -48,11 +48,11 @@ export default function Faq() {
             Preguntas frecuentes
           </h2>
           <p className="text-base text-global-7 max-w-3xl mx-auto">
-            Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de crédito por libranza
+            Encuentra respuestas a las preguntas más comunes sobre nuestros servicios.
           </p>
         </div>
         
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="grid gap-6">
             {faqItems.map((item, index) => (
               <div key={index} className="relative">
@@ -61,7 +61,7 @@ export default function Faq() {
                   onClick={() => toggleFAQ(index)}
                 >
                   <div className="flex justify-between items-start gap-4">
-                    <h3 className="text-xl font-semibold leading-tight text-global-8 flex-1">
+                    <h3 className="text-lg font-semibold leading-tight text-global-8 flex-1">
                       {item.question}
                     </h3>
                     <div className="flex items-center gap-2">

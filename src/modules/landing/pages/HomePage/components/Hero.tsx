@@ -41,7 +41,7 @@ export default function Hero() {
             <img 
               src={heroNavalOfficer} 
               alt="Naval Officer" 
-              className="w-full h-auto rounded-2xl shadow-lg" 
+              className="w-full h-auto rounded-2xl shadow-xl" 
             />
           </div>
         </div>

@@ -12,8 +12,8 @@ export default function HomePage() {
       <CreditSimulation />
       <ClientsSection />
       <CreditProcess />
-      <Faq />
       <ContactSection />
+      <Faq />
     </>
   );
 }
