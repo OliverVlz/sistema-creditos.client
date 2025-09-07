@@ -1,9 +1,9 @@
-import Hero from './components/Hero';
-import { CreditSimulation } from './components/CreditSimulation';
-import { ClientsSection } from './components/ClientsSection';
-import CreditProcess from './components/CreditProcess';
-import Faq from './components/Faq';
-import ContactSection from './components/ContactSection';
+import Hero from './sections/Hero';
+import { CreditSimulation } from './sections/CreditSimulation';
+import { ClientsSection } from './sections/ClientsSection';
+import CreditProcess from './sections/CreditProcess';
+import Faq from './sections/Faq';
+import ContactSection from './sections/ContactSection';
 
 export default function HomePage() {
   return (

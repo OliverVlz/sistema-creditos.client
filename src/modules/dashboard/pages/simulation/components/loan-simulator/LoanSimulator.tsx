@@ -9,9 +9,9 @@ import { ProgressSpinner } from 'primereact/progressspinner'
 import { Message } from 'primereact/message'
 import { useState } from 'react'
 
-import { loanSimulationSchema, type LoanSimulationForm } from '../../../../schemas/loan.schemas'
-import { useLoanSimulation, useInterestRate } from '../../../../hooks/useLoanQueries'
-import type { LoanSimulation } from '../../../../types/loan.types'
+import { loanSimulationSchema, type LoanSimulationForm } from '../../../../../../schemas/loan.schemas'
+import { useLoanSimulation, useInterestRate } from '../../../../../../hooks/useLoanQueries'
+import type { LoanSimulation } from '../../../../../../types/loan.types'
 
 export default function LoanSimulator() {
   const [simulationResult, setSimulationResult] = useState<LoanSimulation | null>(null)

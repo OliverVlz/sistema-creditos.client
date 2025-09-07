@@ -1,4 +1,4 @@
-import MissionVision from './components/MissionVision';
+import MissionVision from './sections/MissionVision';
 
 export default function AboutPage() {
   return (

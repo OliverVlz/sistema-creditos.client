@@ -1,6 +1,6 @@
-import ServicesLibranza from './components/ServicesLibranza';
-import Divider from './components/divider';
-import ServicesHipoteca from './components/ServicesHipoteca';
+import ServicesLibranza from './sections/ServicesLibranza';
+import Divider from './sections/divider';
+import ServicesHipoteca from './sections/ServicesHipoteca';
 
 export default function ServicesPage() {
   return (

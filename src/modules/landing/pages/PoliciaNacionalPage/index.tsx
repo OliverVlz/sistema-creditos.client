@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PoliciaHero } from './components/PoliciaHero';
+import { PoliciaHero } from './sections/PoliciaHero';
 import { InstitutionContent } from '../../../../components/business/InstitutionContent';
 
 export default function PoliciaNacionalPage() {
@@ -15,7 +15,6 @@ export default function PoliciaNacionalPage() {
 
       <InstitutionContent
         institutionName="la Policía Nacional"
-        gradientColors={{ from: 'from-red-600', to: 'to-red-700' }}
         userType={userType}
         onUserTypeChange={setUserType}
         isPolice={true}

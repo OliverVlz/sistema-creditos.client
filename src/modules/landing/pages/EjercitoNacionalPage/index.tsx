@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { EjercitoHero } from './components/EjercitoHero';
+import { EjercitoHero } from './sections/EjercitoHero';
 import { InstitutionContent } from '../../../../components/business/InstitutionContent';
 
 export default function EjercitoNacionalPage() {

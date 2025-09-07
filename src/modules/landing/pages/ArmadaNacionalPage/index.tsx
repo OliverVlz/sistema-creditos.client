@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArmadaHero } from './components/ArmadaHero';
+import { ArmadaHero } from './sections/ArmadaHero';
 import { InstitutionContent } from '../../../../components/business/InstitutionContent';
 
 export default function ArmadaNacionalPage() {

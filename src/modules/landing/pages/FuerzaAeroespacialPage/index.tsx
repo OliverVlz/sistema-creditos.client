@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FuerzaAereaHero } from './components/FuerzaAereaHero';
+import { FuerzaAereaHero } from './sections/FuerzaAereaHero';
 import { InstitutionContent } from '../../../../components/business/InstitutionContent';
 
 export default function FuerzaAeroespacialPage() {

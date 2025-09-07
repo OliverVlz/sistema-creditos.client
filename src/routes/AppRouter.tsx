@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingLayout from '../components/layout/LandingLayout'
-import Layout from '../components/layout/Layout'
 import HomePage from '../modules/landing/pages/HomePage'
 import ServicesPage from '../modules/landing/pages/ServicesPage'
 import AboutPage from '../modules/landing/pages/AboutPage'
@@ -10,9 +9,11 @@ import EjercitoNacionalPage from '../modules/landing/pages/EjercitoNacionalPage'
 import ArmadaNacionalPage from '../modules/landing/pages/ArmadaNacionalPage'
 import FuerzaAeroespacialPage from '../modules/landing/pages/FuerzaAeroespacialPage'
 import PoliciaNacionalPage from '../modules/landing/pages/PoliciaNacionalPage'
-import Dashboard from '../modules/dashboard/pages/Dashboard'
-import ClientsPage from '../modules/clients/pages/ClientsPage'
-import SimulationPage from '../modules/simulation/pages/SimulationPage'
+import DashboardOverview from '../modules/dashboard/pages/overview'
+import LoanApplicationPage from '../modules/dashboard/pages/loan-application'
+import ClientsPage from '../modules/dashboard/pages/clients/pages/ClientsPage'
+import SimulationPage from '../modules/dashboard/pages/simulation/pages/SimulationPage'
+import DashboardLayout from '../modules/dashboard/layout/DashboardLayout'
 import { PublicRoute } from './components/PublicRoute'
 import { PrivateRoute } from './components/PrivateRoute'
 import {
@@ -73,12 +74,13 @@ export default function AppRouter() {
       {/* ===== RUTAS PRIVADAS (Dashboard) - SIN AUTENTICACIÓN TEMPORAL ===== */}
       <Route path={DASHBOARD_ROUTE} element={
         <PrivateRoute>
-          <Layout />
+          <DashboardLayout />
         </PrivateRoute>
       }>
-        <Route index element={<Dashboard />} />
+        <Route index element={<DashboardOverview />} />
         
-        {/* Módulo Créditos */}
+        {/* Módulo Solicitudes */}
+        <Route path="loan-application" element={<LoanApplicationPage />} />
         <Route path="simulation" element={<SimulationPage />} />
         <Route path="my-loans" element={<div>Mis Solicitudes</div>} />
 
